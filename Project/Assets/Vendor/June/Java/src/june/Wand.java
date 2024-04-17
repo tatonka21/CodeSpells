@@ -28,10 +28,10 @@ public class Wand
 
     //System.out.println("Gesture was " + gesture);
 
-		if(gesture.equals("Right"))
+		if("Right".equals(gesture))
 			return Direction.right();
 
-		if(gesture.equals("Left"))
+		if("Left".equals(gesture))
 			return Direction.left();
 
 		return Direction.none();

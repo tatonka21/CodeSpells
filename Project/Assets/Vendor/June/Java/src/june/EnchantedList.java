@@ -25,7 +25,7 @@ public class EnchantedList implements Iterable<Enchanted>
 
     public void addAllFromUnityString(String list)
     {
-       if (!list.equals("")) {
+       if (!"".equals(list)) {
          String[] ids = list.split(";");
          for (String t : ids) {
            add(new Enchanted(t)); //create new enchanted instance
