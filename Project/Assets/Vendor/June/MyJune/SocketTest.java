@@ -1,4 +1,5 @@
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -16,10 +17,10 @@ public class SocketTest
 
 		String fromUser;
 		System.out.print("Client: ");
-		while ((fromUser = sin.readLine()) != null) {
+		while ((fromUser = BoundedLineReader.readLine(sin, 5_000_000)) != null) {
 			out.println(fromUser);
 
-			String fromServer = in.readLine();
+			String fromServer = BoundedLineReader.readLine(in, 5_000_000);
 
 			System.out.println("Server: " + fromServer);
 			if (fromServer.equals("Bye."))
