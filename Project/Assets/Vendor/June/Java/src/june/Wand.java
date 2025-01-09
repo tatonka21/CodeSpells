@@ -1,5 +1,6 @@
 package june;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -56,7 +57,7 @@ public class Wand
     try{
       BufferedReader br = new BufferedReader(new FileReader(file));
       
-      return br.readLine();
+      return BoundedLineReader.readLine(br, 5_000_000);
     }catch(FileNotFoundException fnfe){
       System.out.println("File not found");
       return "";
