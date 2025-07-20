@@ -1,5 +1,6 @@
 package june;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
@@ -54,7 +55,7 @@ public class Enchanted
             Log.log("Java sends to Unity: "+command+"\n");
             EventLog.logEvent(command);
             out.println(command);
-            String response = in.readLine();
+            String response = BoundedLineReader.readLine(in, 5_000_000);
 
             if(response.startsWith("Error"))
             {
